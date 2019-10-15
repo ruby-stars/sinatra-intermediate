@@ -1,7 +1,7 @@
 require 'sinatra'
 # require 'pry-byebug'
 
-@@result= nil
+@@result= []
 
 # CRUD
 # root route
@@ -27,10 +27,20 @@ end
 
 # /store/:id
 get '/store/:id' do
+  id     = params[:id]
   # Whatever number the user gives, is stored in an array.
   # This should return the whole array once the number was stored.
   # This should accept anything, even words.
+  @@result << id
+  @@result
+end
 
+post '/store/:id' do
+  id     = params[:id]
+  # Whatever number the user gives, is stored in an array.
+  # This should return the whole array once the number was stored.
+  # This should accept anything, even words.
+  @@result << id
   @@result
 end
 
