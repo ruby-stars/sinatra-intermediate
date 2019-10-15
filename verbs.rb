@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'pry-byebug'
 
 # CRUD
 # root route
@@ -7,14 +8,14 @@ get '/' do
   "I'm visible in the browser"
 end
 
-# Create
-post '/post_route' do
-  "I posted it"
-end
-
 # Read
 get '/get_route' do
   "I got it"
+end
+
+# Create
+post '/post_route' do
+  "I posted it"
 end
 
 # Update
