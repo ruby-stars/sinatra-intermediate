@@ -25,22 +25,18 @@ get '/names/:id' do
   result
 end
 
-# /store/:id
-get '/store/:id' do
-  id     = params[:id]
-  # Whatever number the user gives, is stored in an array.
-  # This should return the whole array once the number was stored.
-  # This should accept anything, even words.
-  @@result << id
-  @@result
-end
-
+# Whatever number the user gives, is stored in an array.
+# This should return the whole array once the number was stored.
+# This should accept anything, even words.
 post '/store/:id' do
-  id     = params[:id]
-  # Whatever number the user gives, is stored in an array.
-  # This should return the whole array once the number was stored.
-  # This should accept anything, even words.
-  @@result << id
+  id = params[:id]
+
+  unless (id.is_a? Numeric) || (id.is_a? String)
+    @@result = 400
+  else
+    @@result << id
+  end
+
   @@result
 end
 
